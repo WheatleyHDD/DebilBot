@@ -24,7 +24,7 @@ var (
 func AllCommands(messageData object.MessagesMessage, args []string) {
 	resultText := "Все команды:\n\n"
 
-	for k, v := range commandList {
+	for _, v := range commandList {
 		resultText = resultText + v.Icon + " " + v.Name + " - " + v.Description + "\n"
 	}
 
