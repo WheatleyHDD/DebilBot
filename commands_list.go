@@ -94,7 +94,7 @@ func LoadCommands() {
 		isHidden:    false,
 	}
 	commandList["время"] = Command{
-		Name:        "пинг",
+		Name:        "время",
 		Description: "Показать время у бота",
 		Icon:        "⏰",
 		Function:    commands.Time,
