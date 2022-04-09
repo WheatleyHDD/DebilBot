@@ -61,8 +61,8 @@ func LoadCommands() {
 		Function:    AllCommands,
 	}
 	commandList["тест"] = Command{
-		Name:        "тест",
-		Description: "Тестовая команда",
+		Name:        "пинг",
+		Description: "Проверяет бота",
 		Icon:        "💡",
 		Function:    commands.TestCommand,
 	}

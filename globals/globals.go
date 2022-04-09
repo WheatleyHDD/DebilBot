@@ -9,6 +9,8 @@ var (
 	BotSettings *toml.Tree
 	AccessToken string
 	VK          *api.VK
+	FullBase    [][]string
+	HasAnswers  bool = false
 )
 
 func CanReply(messageID int) int {

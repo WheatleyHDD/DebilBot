@@ -8,4 +8,7 @@ require (
 	github.com/ztrue/shutdown v0.1.1
 )
 
-require golang.org/x/text v0.3.5 // indirect
+require (
+	github.com/adrg/strutil v0.2.3 // indirect
+	golang.org/x/text v0.3.5 // indirect
+)

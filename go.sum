@@ -1,5 +1,7 @@
 github.com/SevereCloud/vksdk/v2 v2.10.0 h1:HFTKrRmWaPuRn46PtWjHFlJNElyWrNP3+J2b4j9ztpY=
 github.com/SevereCloud/vksdk/v2 v2.10.0/go.mod h1:jCicWsIOXu4bfbGGuvVw4dM/EbrC8dOyA+0ccvhiFEo=
+github.com/adrg/strutil v0.2.3 h1:WZVn3ItPBovFmP4wMHHVXUr8luRaHrbyIuLlHt32GZQ=
+github.com/adrg/strutil v0.2.3/go.mod h1:+SNxbiH6t+O+5SZqIj5n/9i5yUjR+S3XXVrjEcN2mxg=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/gorilla/schema v1.2.0/go.mod h1:kgLaKoK1FELgZqMAVxx/5cbj0kT+57qxUrAlIO2eleU=

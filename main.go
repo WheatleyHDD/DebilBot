@@ -9,6 +9,7 @@ import (
 
 	"github.com/ztrue/shutdown"
 
+	"DebilBot/chatbot"
 	"DebilBot/globals"
 
 	"github.com/SevereCloud/vksdk/v2/api"
@@ -24,12 +25,14 @@ func main() {
 
 	log.Println("Загрузка конфигов...")
 	LoadConfig()
-	LoadCommands()
-	globals.VK = api.NewVK(globals.AccessToken)
 
-	// log.Println("Загрузка модулей...")
-	// LoadModules()
-	// log.Println("Модули загружены")
+	log.Println("Загрузка команд...")
+	LoadCommands()
+
+	log.Println("Загрузка базы ответов...")
+	LoadAnswers()
+
+	globals.VK = api.NewVK(globals.AccessToken)
 
 	go GoToOnline()
 
@@ -107,5 +110,9 @@ func OnMessageToBot(m wrapper.NewMessage, appeal string) {
 	}
 	if val, ok := commandList[args[0]]; ok {
 		val.Function(messageInfo.Items[0], args)
+	} else {
+		if globals.HasAnswers {
+			chatbot.FindAndSendAnswer(messageInfo.Items[0], rawText)
+		}
 	}
 }
