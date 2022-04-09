@@ -15,6 +15,7 @@ type Command struct {
 	Description string
 	Icon        string
 	Function    commandFunction
+	isHidden    bool
 }
 
 var (
@@ -25,7 +26,9 @@ func AllCommands(messageData object.MessagesMessage, args []string) {
 	resultText := "Все команды:\n\n"
 
 	for _, v := range commandList {
-		resultText = resultText + v.Icon + " " + v.Name + " - " + v.Description + "\n"
+		if !v.isHidden {
+			resultText = resultText + v.Icon + " " + v.Name + " - " + v.Description + "\n"
+		}
 	}
 
 	globals.VK.MessagesSend(api.Params{
@@ -53,35 +56,55 @@ func LoadCommands() {
 		Description: "Информация о боте",
 		Icon:        "🚑",
 		Function:    HelpCommand,
+		isHidden:    false,
 	}
 	commandList["команды"] = Command{
 		Name:        "команды",
 		Description: "Все команды",
 		Icon:        "📱",
 		Function:    AllCommands,
+		isHidden:    false,
 	}
 	commandList["тест"] = Command{
 		Name:        "пинг",
 		Description: "Проверяет бота",
 		Icon:        "💡",
 		Function:    commands.TestCommand,
+		isHidden:    false,
 	}
 	commandList["видео"] = Command{
 		Name:        "видео [запрос]",
 		Description: "Ищу видео в ВК по запросу",
 		Icon:        "🎬",
 		Function:    commands.FindVideo,
+		isHidden:    false,
 	}
 	commandList["фото"] = Command{
 		Name:        "фото [запрос]",
 		Description: "Ищу фото в ВК по запросу",
 		Icon:        "📷",
 		Function:    commands.FindPhoto,
+		isHidden:    false,
 	}
 	commandList["гиф"] = Command{
 		Name:        "гиф [запрос]",
 		Description: "Ищу гиф-анимации в ВК по запросу",
 		Icon:        "🎞",
 		Function:    commands.FindGIF,
+		isHidden:    false,
+	}
+	commandList["время"] = Command{
+		Name:        "пинг",
+		Description: "Показать время у бота",
+		Icon:        "⏰",
+		Function:    commands.Time,
+		isHidden:    false,
+	}
+	commandList["оцени"] = Command{
+		Name:        "оцени",
+		Description: "Объективная оценка от бота",
+		Icon:        "💯",
+		Function:    commands.Rate,
+		isHidden:    false,
 	}
 }
